@@ -5,6 +5,7 @@ header("Access-Control-Allow-Origin: *");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Actuellement sur Mt. Gox</title>
+<link href="favicon.ico" rel="icon" type="image/x-icon" />
 <script language="javascript" type="text/javascript" src="flot/jquery.js"></script> 
 <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
 <style>
@@ -25,19 +26,6 @@ div#tooltip {
 </style>
 </head>
 <body>
-<?php
-/* DEPTH **********************************************************************/
-/*$depth = json_decode(file_get_contents("http://mtgox.com/code/data/getDepth.php"), true);
-
-function cmp($a, $b) {
-	if($a[0] == $b[0]) return 0;
-	return ($a[0] < $b[0]) ? -1 : 1;
-}
-usort($depth[asks], "cmp");
-usort($depth[bids], "cmp");
-rsort($depth[bids]);
-*/
-?>
 <h2>Actuellement sur Mt. Gox</h2>
 <ul>
     <li>Le bitcoin le moins cher se vend <span id="ask" style="font-weight: bold;"></span></li>
