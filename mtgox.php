@@ -71,7 +71,7 @@ function plot() {
         
         yaxis: {
             position: "right",
-        }
+        },
         
         selection: {
             mode: "x"
