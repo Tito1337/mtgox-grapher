@@ -98,14 +98,14 @@ function plot() {
         },
         
         legend: {
-            position: 'sw',
+            position: 'nw',
         }
     }
 
     /* DONNÉES */
     var trades = [];
     $.get('getTrades.php', function(data) {
-        var data = eval(data);
+        data = eval('(' + data + ')');
         var timeLimit = (time/1000)-7200;
         var minimum = 10000;
         var maximum = 0;
@@ -125,10 +125,14 @@ function plot() {
     var bids = [];
     $.get('getDepth.php', function(data) {
         data = eval('(' + data + ')');
-        var i = 0;
         for(i=0; i<10; i++) {
-            asks.push(data.asks[i]);
-            bids.push(data.bids[i]); 
+            ask = bid = 0;
+            for(j=0; j<=i; j++) {
+                ask += data.asks[j][1];
+                bid += data.bids[j][1];
+            }
+            asks.push([data.asks[i][0], ask]);
+            bids.push([data.bids[i][0], bid]); 
         }
         $.plot($("#depth"), [{data: asks, label: "Vendeurs"}, {data: bids, label: "Acheteurs"}], depthOptions);
         $("#ask").html(data.asks[0][0]+" USD");
