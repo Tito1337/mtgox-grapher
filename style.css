@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 8px 30px 8px 30px;
+}
+div#tooltip {
+    position: absolute;
+    display: none;
+    border: 1px solid #fdd;
+    padding: 2px;
+    background-color: #fee;
+    opacity: 0.80;
+}
+
